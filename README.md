@@ -135,6 +135,32 @@
 ## Задание 2
 ### Подробно описать каждую строку файла конфигурации нейронной сети. Самостоятельно найти информацию о компонентах Decision Requester, Behavior Parameters, добавленных на сфере. 
 #### Описание каждой строки файла конфигурации нейронной сети.
+* содержимое файла конфигурации
+   ```yaml
+   behaviors:
+    RollerBall:
+      trainer_type: ppo
+      hyperparameters:
+        batch_size: 10
+        buffer_size: 100
+        learning_rate: 3.0e-4
+        beta: 5.0e-4
+        epsilon: 0.2
+        lambd: 0.99
+        num_epoch: 3
+        learning_rate_schedule: linear
+      network_settings:
+        normalize: false
+        hidden_units: 128
+        num_layers: 2
+      reward_signals:
+        extrinsic:
+          gamma: 0.99
+          strength: 1.0
+      max_steps: 500000
+      time_horizon: 64
+      summary_freq: 10000
+   ```
 Ссылка на документацию ml-агента - https://github.com/Unity-Technologies/ml-agents/blob/main/docs/Training-Configuration-File.md 
   * ```trainer_type``` - (по умолчанию = ppo) Тип используемого тренера: ppo, sac, или poca.  
   * ```hyperparameters```(гиперпараметры):  
